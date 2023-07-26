@@ -1,0 +1,494 @@
+<sdf version='1.9'>
+  <model name='mm'>
+    <link name='robot_footprint'>
+      <inertial>
+        <pose>0.00061100862541756 0 0.4757246846487511 0 0 0</pose>
+        <mass>40.113999999999997</mass>
+        <inertia>
+          <ixx>0.83339178341726061</ixx>
+          <ixy>0</ixy>
+          <ixz>-0.0062322879792591108</ixz>
+          <iyy>0.83864645759585166</iyy>
+          <iyz>0</iyz>
+          <izz>0.206254674178591</izz>
+        </inertia>
+      </inertial>
+      <collision name='robot_footprint_fixed_joint_lump__collision_collision'>
+        <pose>0 0 0.6 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.95 0.6 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='robot_footprint_fixed_joint_lump__collision_collision_1'>
+        <pose>0 0 0.4 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.7 0.5 0.35</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='robot_footprint_fixed_joint_lump__lidar_link_collision_2'>
+        <pose>0.215 0 0.73 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.17999999999999999</length>
+            <radius>0.050799999999999998</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='robot_footprint_fixed_joint_lump__chassis_visual_visual'>
+        <pose>0 0 0.6 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.95 0.6 0.05</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='robot_footprint_fixed_joint_lump__box_visual_visual_1'>
+        <pose>0 0 0.4 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.7 0.5 0.35</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Grey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='robot_footprint_fixed_joint_lump__lidar_link_visual_2'>
+        <pose>0.215 0 0.73 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.17999999999999999</length>
+            <radius>0.050799999999999998</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+          <ambient>0 0 0 1</ambient>
+        </material>
+      </visual>
+
+      <gravity>true</gravity>
+
+    </link>
+    <joint name='back_left_wheel_joint' type='revolute'>
+      <pose relative_to='robot_footprint'>-0.25 0.3 0.35 0 0 0</pose>
+      <parent>robot_footprint</parent>
+      <child>back_left_wheel</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='back_left_wheel'>
+      <pose relative_to='back_left_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 -5.762794389312105e-13 1.570700000002009 1.570699999999184</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.10000000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.10000000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.10000000000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='back_left_wheel_collision'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050000000000000003</length>
+            <radius>0.20000000000000001</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='back_left_wheel_visual_visual'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050000000000000003</length>
+            <radius>0.20000000000000001</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='back_left_wheel_cover_joint' type='revolute'>
+      <pose relative_to='back_left_wheel'>0 0.025 0 0 0 0</pose>
+      <parent>back_left_wheel</parent>
+      <child>back_left_wheel_cover</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='back_left_wheel_cover'>
+      <pose relative_to='back_left_wheel_cover_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 -5.762794389312105e-13 1.570700000002009 1.570699999999184</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.10000000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.10000000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.10000000000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='back_left_wheel_cover_collision'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.14999999999999999</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='back_left_wheel_cover_visual_visual'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.14999999999999999</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Grey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='back_right_wheel_joint' type='revolute'>
+      <pose relative_to='robot_footprint'>-0.25 -0.3 0.35 0 0 0</pose>
+      <parent>robot_footprint</parent>
+      <child>back_right_wheel</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='back_right_wheel'>
+      <pose relative_to='back_right_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 -5.762794389312105e-13 1.570700000002009 1.570699999999184</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.10000000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.10000000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.10000000000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='back_right_wheel_collision'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050000000000000003</length>
+            <radius>0.20000000000000001</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='back_right_wheel_visual_visual'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050000000000000003</length>
+            <radius>0.20000000000000001</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='back_right_wheel_cover_joint' type='revolute'>
+      <pose relative_to='back_right_wheel'>0 -0.025 0 0 0 0</pose>
+      <parent>back_right_wheel</parent>
+      <child>back_right_wheel_cover</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='back_right_wheel_cover'>
+      <pose relative_to='back_right_wheel_cover_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 -5.762794389312105e-13 1.570700000002009 1.570699999999184</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.10000000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.10000000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.10000000000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='back_right_wheel_cover_collision'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.14999999999999999</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='back_right_wheel_cover_visual_visual'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.14999999999999999</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Grey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='front_left_wheel_joint' type='revolute'>
+      <pose relative_to='robot_footprint'>0.3 0.3 0.25 0 0 0</pose>
+      <parent>robot_footprint</parent>
+      <child>front_left_wheel</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_left_wheel'>
+      <pose relative_to='front_left_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 -5.762794389312105e-13 1.570700000002009 1.570699999999184</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>0.10000000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.10000000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.10000000000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_left_wheel_collision'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050000000000000003</length>
+            <radius>0.10000000000000001</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='front_left_wheel_visual_visual'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050000000000000003</length>
+            <radius>0.10000000000000001</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='front_right_wheel_joint' type='revolute'>
+      <pose relative_to='robot_footprint'>0.3 -0.3 0.25 0 0 0</pose>
+      <parent>robot_footprint</parent>
+      <child>front_right_wheel</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-10000000000000000</lower>
+          <upper>10000000000000000</upper>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>1</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_right_wheel'>
+      <pose relative_to='front_right_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 -5.762794389312105e-13 1.570700000002009 1.570699999999184</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>0.10000000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.10000000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.10000000000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_right_wheel_collision'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050000000000000003</length>
+            <radius>0.10000000000000001</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='front_right_wheel_visual_visual'>
+        <pose>0 0 0 0 1.570796326794897 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <length>0.050000000000000003</length>
+            <radius>0.10000000000000001</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Black</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <static>false</static>
+
+    <plugin filename="libignition-gazebo-diff-drive-system.so" name="ignition::gazebo::systems::DiffDrive">
+    <left_joint>front_left_wheel_joint</left_joint>
+    <right_joint>front_right_wheel_joint</right_joint>
+    <wheel_separation>0.108</wheel_separation>
+    <wheel_radius>0.012</wheel_radius>
+    <odom_publish_frequency>100</odom_publish_frequency>
+    <topic>/cmd_vel</topic>
+    </plugin>
+
+  </model>
+</sdf>
